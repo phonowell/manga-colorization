@@ -29,3 +29,7 @@ python scripts/quickstart.py --demo --out outputs/contribution-demo
 `SOURCE.json` 中的SHA记录初始提取字节，不应为了匹配后续修改而回填历史SHA。对来源文件的适配在 `adaptedFiles` 中说明。独立仓库不自动回写Colorleaf。
 
 PR中的代码和文档以仓库 [MIT许可证](LICENSE) 提供。若新增第三方内容，保留其来源和许可证，不将漫画使用权与工具许可证混淆。
+
+## Release versions
+
+按维护者要求，之后每次发布只递增 `0.0.1`：`v0.1.0` → `v0.1.1` → `v0.1.2`。主版本与次版本保持 `0.1`；补丁号不跳号，`v0.1.9` 后为 `v0.1.10`。不因功能规模或破坏性变更自动提升主/次版本。保留已有标签与发行记录；普通提交不必单独发行。

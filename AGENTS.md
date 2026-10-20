@@ -7,3 +7,7 @@ Read current files before editing and preserve unrelated changes. Keep object co
 Do not add private manga, user feedback, ledgers, credentials, or provider responses. The checked-in diagnostic preview is a synthetic geometric fixture, not a coloring showcase.
 
 For Python changes run `python scripts/test-source-fidelity.py` and `python -m unittest discover -s tests -v`. Run the documented offline demo in a new output directory. No provider calls are needed for package validation. Confirm doc links and installation discovery when changing packaging. Preserve historical extraction hashes in SOURCE.json and record adaptations separately.
+
+## Release versions
+
+Owner policy: every future release increments only the patch component by exactly one. Keep major/minor fixed at `0.1`: `v0.1.0` → `v0.1.1` → `v0.1.2`, and `v0.1.9` → `v0.1.10`. Never skip patch numbers or automatically bump minor/major for feature size or breaking changes. Preserve existing tags and releases. This policy does not require creating a release for every commit.
