@@ -11,6 +11,10 @@ In Colorleaf, the image-generation model supplies object colors and fixes missin
 
 Use the monochrome original as the structural authority: either a full page or a source-bound montage of complete panels. Never edit a colored candidate or chain model outputs; colored pages supply color references only. Consolidate feedback by page and panel: a full-page request includes all valid page feedback; a panel request includes all valid feedback and preservation requirements for those panels. Multiple candidates share the applicable requirements. Review the final assembled page as well as its panels. Historical feedback boxes stay attached to their reviewed SHA, not to a newly generated image. See the [execution guide](references/workflow.md) for panel packing, selection, and reconstruction.
 
+## First use in a standalone project
+
+Use the project's existing files and authorized image tool. For a first page, obtain the monochrome original, requested finish, and any available color references; record only the source binding, relevant palette choices, feedback, and selected version needed for that task. Do not require Colorleaf's private ledgers, status documents, review service, or request adapters to begin. Colorleaf-specific references describe optional integrations. If no image tool is available, state the missing capability and prepare useful inputs without claiming artwork was generated. For local comparison of an existing candidate, `scripts/quickstart.py` accepts a source and candidate or a clearly labeled synthetic diagnostic demo; it never colors or approves artwork.
+
 ## Select the work
 
 - **New chapter:** read the requested source range, establish continuity evidence and uncertain regions, then pilot representative pages before batching.

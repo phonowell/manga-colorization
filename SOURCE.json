@@ -72,5 +72,12 @@
       "sourcePath": "scripts/test-source-fidelity.py",
       "sha256": "6df5d30ce442bfd467ab9ec5f36906d56bfa793752df213630837ed9dbc7f411"
     }
+  ],
+  "hashMeaning": "Each file sha256 records its initial extracted bytes from sourceCommit; it is historical provenance, not a digest of later standalone adaptations.",
+  "adaptedFiles": [
+    {
+      "path": "SKILL.md",
+      "reason": "Add standalone first-use guidance without requiring private Colorleaf runtime; core coloring and fidelity rules preserved."
+    }
   ]
 }

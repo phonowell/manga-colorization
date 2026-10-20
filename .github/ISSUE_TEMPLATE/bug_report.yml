@@ -1,0 +1,24 @@
+name: Bug report / 缺陷报告
+description: Report an installation, tool, or workflow problem with a reproducible example.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境
+      description: Agent, installation method, OS, Python version, and commit if known. Do not include credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      description: Share a minimal command or task using synthetic or shareable inputs. Redact local private paths.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior / 预期与实际结果
+      description: Include the error text and what you actually inspected. Private manga and full provider logs are not needed.
+    validations:
+      required: true

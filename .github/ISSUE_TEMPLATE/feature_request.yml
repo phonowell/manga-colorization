@@ -1,0 +1,17 @@
+name: Improvement / 改进建议
+description: Suggest a concrete improvement to the first-use experience or coloring workflow.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do? / 你想完成什么？
+      description: Describe the task and where the current package gets in your way.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired behavior / 期望行为
+      description: A concrete example helps. Please avoid private source material.
+    validations:
+      required: true
