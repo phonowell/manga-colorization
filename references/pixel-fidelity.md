@@ -1,0 +1,45 @@
+# Pixel-coordinate source fidelity
+
+Colorleaf requires coloring the original drawing, with its geometry and content preserved. A successful model response, attractive colors, or a high whole-page similarity score cannot establish this. Source fidelity is a publication gate separate from color, semantics, continuity, and user approval.
+
+## Compare in original coordinates
+
+Bind originals, prepared inputs, immutable raw outputs, panel assembly/grading stages, and the served file by SHA-256, dimensions, and declared transforms. Verify that preparation preserved each original page or complete panel's source content. For a panel montage, validate each slot and its mapping back to the original page; inspect the final reconstructed page at original coordinates. Exclude only padding declared before generation; never exclude damaged content after inspecting the result. For a 2000×2844 original padded at the bottom to 2000×2848, compare the original content rectangle at its unchanged coordinates and report the padding separately. Raw outputs remain unchanged even when the published page is assembled or uniformly graded by panel.
+
+Reject unexplained dimension changes, cropping, rescaling, rotation, and material displacement. Declared extraction, packing, and placement of complete panels are permitted mechanical operations; they do not excuse changes to drawing geometry within a panel. Do not register or warp content to conceal model drift and make a candidate pass. A separately labeled diagnostic alignment may help explain a failure; its improved score is not acceptance evidence.
+
+## What must remain
+
+Protect panel borders, balloons, lettering including effects and punctuation, silhouettes, expression, anatomy, gestures, prop geometry, and printed illustrations. Reject content or performance changes, including replacement characters, invented teeth, changed fingers, and materially reshaped outlines. Normal antialiasing, line-width, paper/tonal texture, and small rendering variations consistent with the user's accepted pages are tolerable. Do not demand mathematically identical source strokes or reject every changed edge pixel. A changed expression or glyph cannot be offset by the rest of a page.
+
+Pigment, shading, paper texture, and authorized line tint can change pixel values. Consequently, exact RGB equality, raw PSNR, or whole-page SSIM is not the structural criterion. Grayscale subtraction alone is also insufficient: new dark pigment changes luminance without moving a line. Distinguish structural ink from screen tones, tonal fills, effects, and color boundaries using source evidence. Do not automatically exempt all dark, textured, or ambiguous regions. Uncertain classification remains unverified.
+
+## Required inspection evidence
+
+An inspection implementation must report all of the following, rather than a single pass score:
+
+- Original-coordinate pixel maps of missing, added, and displaced structural marks, using both source-to-output and output-to-source checks. Matching nearby dense hatching alone does not prove that the same stroke survived. Compare stroke shape, direction, width, and connected structure where needed. Use multiple contrasts/scales and expose uncertain detections; a color/shadow boundary is not automatically a new ink stroke.
+- Counts and distance distributions at exact coordinates and within 1 and 2 source pixels. These are diagnostic bands, not permission to translate or redraw the artwork. Calibrate tolerable raster variation against accepted references; it cannot excuse material geometry drift, changed glyph content, or changed expression.
+- Exhaustive local coverage, for example fixed 64×64 source-pixel tiles, plus connected mismatch regions and native-size comparisons. Report worst regions and coverage, including blank and unchanged areas. Inspect critical objects across tile boundaries; a grid cannot safely divide an eye or word. Whole-page averages cannot overrule a local failure.
+- Separate checks for every text region, face/eye/mouth, hand, panel/balloon border, and printed illustration. A low-confidence OCR match cannot certify lettering shape; untranscribed text still requires visual comparison. Existing feedback crops alone do not cover a page.
+- Native crops, a clearly labeled inspection-only difference/overlay view, original and candidate hashes, detector version/settings, exclusions and their evidence, unresolved regions, and the host decision. Analysis images must never become delivered artwork or be fed back as a corrected target.
+
+## Decision and calibration
+
+Reject confirmed content/performance changes and material geometry drift. Unexplained dimension changes and transformations still fail the coordinate check; small raster differences require contextual judgment against accepted references. An uncertain result is `unverified`, not a pass. Require complete-page and native critical-region inspection in addition to diagnostics. Source fidelity and all other quality dimensions must be reviewed before publishing an eligible review candidate. User approval remains a separate decision.
+
+Use the user's accepted chapter as the empirical tolerance reference. Exclude currently disputed versions, bind exact files, and split calibration from held-out validation before fitting thresholds. Derive normal ranges from accepted pages with headroom; do not tune them to make rejected candidates pass or to enforce zero pixel differences. Exercise isolated glyph, thin-line, eye, and finger changes as well as large shifts. Historical approvals remain intact. Report the sample count, reference range, margin rule, held-out results, and limits; chapter-specific values belong in the local ledger.
+
+Thresholds trigger inspection; they do not automatically reject an artistic result or certify it for publication. If a candidate exceeds the range, inspect whether tonal conversion, texture, or minor raster changes explain the alert. A host may clear a documented benign alert after native/whole-page comparison. Within-range ink can still hide misplaced pigment or semantic errors. Do not waive a confirmed content change simply because its metrics are normal.
+
+Record technical measurements, host visual judgment, and user decision independently. A metric must not reverse an explicit user rejection. Unapproved candidates still need this gate; their previous visual review is not a pixel-level certification. A rejected candidate must not serve as an approved previous-page reference; any already-submitted request that used it retains its actual provenance and requires an explicit reference review.
+
+Keep fidelity unverified until the necessary visual review is complete. If a generation mechanism repeatedly changes content or materially redraws the source, diagnose that mechanism. Complete-panel selection from multiple candidates and source-panel montage generation are available alternatives; review selected panels and the final page without lowering the gate. Do not continue blind retries or code-paint objects to cover model failures. A rejected complete page may contain usable panels; verify them individually rather than inheriting either a pass or rejection for every panel.
+
+## Read-only tools
+
+`scripts/check-source-fidelity.py` at the repository root takes `--plan PLAN --out NEW_DIRECTORY`. A schema1 plan contains `cases`, each with a safe unique `id`, SHA-bound `source` and `candidate` objects (`path`, `sha256`), explicit `padding` in left/top/right/bottom order, and optional original-pixel `criticalRegions` (`id`, `kind`, `box` in left/top/right/bottom order). Nonzero padding requires `preparation.image` and `preparation.metadata` bindings; metadata must declare the original SHA, original `scaledContent` dimensions and padding. The helper verifies decoded original content equality, refuses implicit alignment/resizing, and leaves inputs unchanged.
+
+It reports three contrast/scale modes, bidirectional distance bands, orientation support, every64px tile, connected mismatch locators, and labeled inspection-only images. These are edge proxies, not a semantic ink classifier. It cannot certify complete critical-region coverage or approve artwork.
+
+`scripts/calibrate-source-fidelity.py` takes `--reference-plan PLAN --reference-reports DIR --evaluate DIR --out NEW_DIRECTORY`. References must be explicitly labeled accepted and split into `calibration`/`held_out_validation` before fitting. It requires at least eight calibration pages, checks detector versions/bindings, and never fits to evaluation candidates. Its initial rule adds20% headroom to each accepted feature maximum, with a minimum2 percentage-point global or5 percentage-point local margin, rounded upward. The outputs retain alerts and separate them from artistic decisions. A feature whose range covers100% is non-discriminative and must not be presented as a useful local gate. Run `scripts/test-source-fidelity.py` for the local synthetic and provenance regressions; no model calls are needed.

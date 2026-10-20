@@ -1,0 +1,76 @@
+{
+  "sourceProject": "Colorleaf",
+  "sourceCommit": "358e68de0d331d9b0aa98156efc8b37a2a95a71c",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sourcePath": "skills/manga-colorization/SKILL.md",
+      "sha256": "394a21494d737154b4e0fa5c8d2e61256b25eadd569229dd3fa1752f71e199b1"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sourcePath": "skills/manga-colorization/agents/openai.yaml",
+      "sha256": "752d8da9eed9c5f7d860150b93901208b92cd3ee59e86f66ee8d6aece8ff4da5"
+    },
+    {
+      "path": "references/ledger-review.md",
+      "sourcePath": "skills/manga-colorization/references/ledger-review.md",
+      "sha256": "7dac5cf813f99613fe387d196c917c4e5ed98270740b3e669276b4b517c3bdec"
+    },
+    {
+      "path": "references/pixel-fidelity.md",
+      "sourcePath": "skills/manga-colorization/references/pixel-fidelity.md",
+      "sha256": "1e3517046c10c51f4acb90cb417acdc215c3e7d63e2abbeffaf1b249b48746b6"
+    },
+    {
+      "path": "references/quality.md",
+      "sourcePath": "skills/manga-colorization/references/quality.md",
+      "sha256": "179eb2a09bac058a324bf3e408b1f2b0c892b986c3848f543822c1c5d841a38e"
+    },
+    {
+      "path": "references/request-packet.md",
+      "sourcePath": "skills/manga-colorization/references/request-packet.md",
+      "sha256": "5b67ba04ef6a0044461527bf7baf8adb5d3c831e64bba97a1d9c8463ee670812"
+    },
+    {
+      "path": "references/workflow.md",
+      "sourcePath": "skills/manga-colorization/references/workflow.md",
+      "sha256": "3350d4921fa420df0986a7d002b4391799fd6fa1fb3260fcc707664edac8ee05"
+    },
+    {
+      "path": "scripts/audit-reading-order.py",
+      "sourcePath": "scripts/audit-reading-order.py",
+      "sha256": "f19f0c4f5b5d0b3398b81f5ff172d76c511f343c844ae4d481b348eadfef1da1"
+    },
+    {
+      "path": "scripts/calibrate-source-fidelity.py",
+      "sourcePath": "scripts/calibrate-source-fidelity.py",
+      "sha256": "98881c14de8ef00ad5b8b24271d4d9d44ab9e4cda60b72763b3a739bd25bbd28"
+    },
+    {
+      "path": "scripts/check-source-fidelity.py",
+      "sourcePath": "scripts/check-source-fidelity.py",
+      "sha256": "c1cf6cff8cc58b8e04e59a4379d653ca3ea97324a2602b2ed7ffe1a0e2fe4329"
+    },
+    {
+      "path": "scripts/inspect_bundle.py",
+      "sourcePath": "skills/manga-colorization/scripts/inspect_bundle.py",
+      "sha256": "5b59c44a76fee51790819d78af71156255a472491a75fd3a085343e6d8c1fb55"
+    },
+    {
+      "path": "scripts/prepare-panel-model-rework.py",
+      "sourcePath": "scripts/prepare-panel-model-rework.py",
+      "sha256": "15b3787e0824e47b6a39296d276a250f1aa1345b1e54b3a7e309841210378705"
+    },
+    {
+      "path": "scripts/prepare_request.py",
+      "sourcePath": "skills/manga-colorization/scripts/prepare_request.py",
+      "sha256": "88f22f917df247889708df287d0538346d72c62995dec55080dd43f1b793d13e"
+    },
+    {
+      "path": "scripts/test-source-fidelity.py",
+      "sourcePath": "scripts/test-source-fidelity.py",
+      "sha256": "6df5d30ce442bfd467ab9ec5f36906d56bfa793752df213630837ed9dbc7f411"
+    }
+  ]
+}

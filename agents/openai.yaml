@@ -1,0 +1,4 @@
+interface:
+  display_name: "漫画上色与一致性校审"
+  short_description: "核对原稿阅读路径与跨页账本，通过生图模型上色和返工，按可追溯证据校审质量"
+  default_prompt: "使用 $manga-colorization 核对漫画原稿与活账本，按实际覆盖记录阅读路径和语义；上色与图像返工使用生图模型。"
